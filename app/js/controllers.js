@@ -80,7 +80,7 @@ $http.get('http://ashirted.x10.mx/gisasterphp/popData.php')
 $http.get('http://ashirted.x10.mx/gisasterphp/popData.php')
     .success(function(Markers) {
               $scope.markers = Markers;
-var filters = searchObject.foo;
+var filters = 4;
 var selected_filter = "flood_id";
 var dataFromdb = Markers;
 var arr = _.filter(dataFromdb, function(item) {
