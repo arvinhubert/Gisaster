@@ -18,7 +18,7 @@ angular.module('GisasterWebControllers', ['uiGmapgoogle-maps','underscore','angu
  $timeout(function() {
 $scope.map = { center: { latitude: 8.466351981820633, longitude: 124.64285510489344 }, zoom: 15 };
 
-$http.get('http://192.168.43.120:8080/gisasterphp/popData.php')
+$http.get('http://ashirted.x10.mx/gisasterphp/popData.php')
     .success(function(Markers) {
     	      $scope.markers = Markers;
 var filters = searchObject.foo;
@@ -45,7 +45,7 @@ $scope.map = { center: { latitude: $scope.result.coords.latitude, longitude: $sc
  $timeout(function() {
 $scope.map = { center: { latitude: 8.466351981820633, longitude: 124.64285510489344 }, zoom: 15 };
 
-$http.get('http://192.168.43.120:8080/gisasterphp/popData.php')
+$http.get('http://ashirted.x10.mx/gisasterphp/popData.php')
     .success(function(Markers) {
     	      $scope.markers = Markers;
     	      console.log(Markers)
