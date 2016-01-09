@@ -66,7 +66,7 @@ $http.get('http://ashirted.x10.mx/gisasterphp/popData.php')
     //$scope.$apply is needed to trigger the digest cycle when the geolocation arrives and to update all the watchers
  
 })
-.controller('MetaCtrl', function($scope, $http, $timeout,$location,_) {
+.controller('MetaCtrl', function($scope, $http, $timeout,$location,_,$rootScope) {
 
     var searchObject = $location.search();
 // alert( searchObject.foo );
@@ -80,7 +80,7 @@ $http.get('http://ashirted.x10.mx/gisasterphp/popData.php')
 $http.get('http://ashirted.x10.mx/gisasterphp/popData.php')
     .success(function(Markers) {
               $scope.markers = Markers;
-var filters = searchObject.foo;
+var filters = 4;
 var selected_filter = "flood_id";
 var dataFromdb = Markers;
 var arr = _.filter(dataFromdb, function(item) {
@@ -88,7 +88,7 @@ var arr = _.filter(dataFromdb, function(item) {
               });
 
           arr= arr[0];
-          $scope.result=arr;
+          $rootScope.result=arr;
 
 
 
