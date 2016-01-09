@@ -89,7 +89,7 @@ var arr = _.filter(dataFromdb, function(item) {
 
           arr= arr[0];
           $rootScope.result=arr;
-
+console.log(result.link)
 
 
      
