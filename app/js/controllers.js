@@ -4,9 +4,7 @@ angular.module('GisasterWebControllers', ['uiGmapgoogle-maps','underscore','angu
           $rootScope.facebookAppId = '399913810178834'; // set your facebook app id here
       }
   ])
-/*.run(function($FB){
-  $FB.init('386469651480295');
-})*/
+
 .controller('HomeCtrl', function($scope, uiGmapGoogleMapApi, $http, $timeout,$location,_) {
 
 	var searchObject = $location.search();
@@ -36,7 +34,7 @@ $scope.map = { center: { latitude: $scope.result.coords.latitude, longitude: $sc
      
     })
       })
-    //$scope.$apply is needed to trigger the digest cycle when the geolocation arrives and to update all the watchers
+    
  
 })
 .controller('MapViewCtrl', function($scope, uiGmapGoogleMapApi, $http, $timeout,$location,_) {
@@ -52,7 +50,7 @@ $http.get('http://ashirted.x10.mx/gisasterphp/popData.php')
     })
       })
 
-  $scope.share = function(post){
+/*  $scope.share = function(post){
   	console.log(post.link)
     FB.ui(
     {
@@ -64,8 +62,40 @@ $http.get('http://ashirted.x10.mx/gisasterphp/popData.php')
         description: post.address,
         message: ''
     });
-  }
+  }*/
     //$scope.$apply is needed to trigger the digest cycle when the geolocation arrives and to update all the watchers
+ 
+})
+.controller('MetaCtrl', function($scope, $http, $timeout,$location,_) {
+
+    var searchObject = $location.search();
+// alert( searchObject.foo );
+
+    $scope.foo= searchObject.foo;
+
+ $scope.marker =  {};
+ $timeout(function() {
+
+
+$http.get('http://ashirted.x10.mx/gisasterphp/popData.php')
+    .success(function(Markers) {
+              $scope.markers = Markers;
+var filters = searchObject.foo;
+var selected_filter = "flood_id";
+var dataFromdb = Markers;
+var arr = _.filter(dataFromdb, function(item) {
+              return item[selected_filter] == filters;
+              });
+
+          arr= arr[0];
+          $scope.result=arr;
+
+
+
+     
+    })
+      })
+    
  
 })
 .directive('fbLike', [
