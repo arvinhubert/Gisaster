@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html ng-app="GisasterWeb" >
+<html ng-app="GisasterWeb" ng-controller="MetaCtrl">
     <head>
-<meta property="og:url"                content="http://cdogisaster.net23.net/" />
+<meta property="og:url"                content="{{result.link}}" />
 <meta property="og:type"               content="article" />
-<meta property="og:title"              content="CDO GISASTER Test v4.4" />
+<meta property="og:title"              content="CDO GISASTER" />
 <meta property="og:description"        content="CDO Gisaster Application Service Towards Environment Response." />
-<meta property="og:image"              content="http://i1190.photobucket.com/albums/z457/juan_marco2/ogphoto1_zpslenbv8e4.png" />
+<meta property="og:image"              content="{{result.image}}" />
 <meta property="fb:app_id"             content="1661746570746583" /> 
 <meta property="fb:admins"             content="100010975506869" />
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
